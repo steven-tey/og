@@ -1,4 +1,4 @@
-import { constructMetadata } from "@/lib/utils";
+import { constructMetadata, getEndpointFromDomain } from "@/lib/utils";
 import Image from "next/image";
 
 export const runtime = "edge";
@@ -11,12 +11,16 @@ export async function generateMetadata({
   const slug = params.slug.join("/");
 
   const { title, description } = await fetch(
-    `https://api.dub.co/metatags?url=https://nytimes.com/${slug}`
+    `https://api.dub.co/metatags?url=https://${slug}`
   ).then((res) => res.json());
+
+  const domain = params.slug[0];
+
   return constructMetadata({
     title,
     description,
-    image: `/api/og?url=https://nytimes.com/${slug}`,
+    image: `/api/og/${getEndpointFromDomain(domain)}?url=https://${slug}`,
+    icons: `https://www.google.com/s2/favicons?sz=64&domain_url=${domain}`,
   });
 }
 
@@ -28,21 +32,23 @@ export default async function ProxyPage({
   const slug = params.slug.join("/");
 
   const { title, description } = await fetch(
-    `https://api.dub.co/metatags?url=https://nytimes.com/${slug}`
+    `https://api.dub.co/metatags?url=https://${slug}`
   ).then((res) => res.json());
+
+  const domain = params.slug[0];
 
   return (
     <main className="flex h-screen w-screen items-center justify-center">
       <div className="mx-5 w-full max-w-lg overflow-hidden rounded-lg border border-gray-200 sm:mx-0">
         <Image
-          src={`/api/og?url=https://nytimes.com/${slug}`}
+          src={`/api/og/${getEndpointFromDomain(domain)}?url=https://${slug}`}
           alt={title}
           width={1050}
           height={549}
         />
-        <div className="flex space-x-3 bg-gray-100 p-5">
+        <div className="flex space-x-3 bg-white p-5">
           <Image
-            src="/favicon.ico"
+            src={`https://www.google.com/s2/favicons?sz=64&domain_url=${params.slug[0]}`}
             alt="NYT logo"
             width={40}
             height={40}

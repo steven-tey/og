@@ -46,7 +46,7 @@ export default async function handler(req: NextRequest) {
             left: 80,
             margin: 0,
             fontSize: 50,
-            fontFamily: "NYC Cheltenham",
+            fontFamily: "NYT Cheltenham",
             maxWidth: 900,
             whiteSpace: "pre-wrap",
             letterSpacing: -1,
@@ -61,7 +61,7 @@ export default async function handler(req: NextRequest) {
       height: 549,
       fonts: [
         {
-          name: "NYC Cheltenham",
+          name: "NYT Cheltenham",
           data: cheltenhamData,
         },
       ],

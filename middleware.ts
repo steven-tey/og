@@ -7,9 +7,9 @@ export const config = {
      * Match all paths except for:
      * 1. /api routes
      * 2. /_next (Next.js internals)
-     * 3. all root files inside /public (e.g. /favicon.ico)
+     * 3. /_vercel (Vercel internals)
      */
-    "/((?!api/|_next/|_vercel|[\\w-]+\\.\\w+).*)",
+    "/((?!api/|_next/|_vercel).*)",
   ],
 };
 
@@ -19,9 +19,13 @@ export default async function middleware(req: NextRequest) {
     searchParams.length > 0 ? `?${searchParams}` : ""
   }`;
 
+  if (path === "/") {
+    return NextResponse.redirect("https://github.com/steven-tey/og.cool");
+  }
+
   const isBot = detectBot(req);
-  if (isBot) {
+  if (true) {
     return NextResponse.rewrite(new URL(req.nextUrl.pathname, req.url));
   }
-  return NextResponse.redirect(`https://nytimes.com${path}`);
+  return NextResponse.redirect(`https://${path}`);
 }

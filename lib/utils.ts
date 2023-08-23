@@ -23,13 +23,15 @@ export function detectBot(req: NextRequest) {
 }
 
 export function constructMetadata({
-  title = "NYT OG – Add headlines to OG Images for NYT Articles",
-  description = "NYT OG is a tool that adds headlines to Open Graph images for New York Times articles.",
+  title = "OG Cool – Add headlines to OG Images for News Articles",
+  description = "OG Cool is a tool that adds headlines to Open Graph images for News articles.",
   image = "/api/og?url=https://www.nytimes.com/2023/08/22/world/europe/greece-wildfires-dead-bodies.html",
+  icons = "/favicon.ico",
 }: {
   title?: string;
   description?: string;
   image?: string;
+  icons?: string;
 } = {}): Metadata {
   return {
     title,
@@ -50,8 +52,29 @@ export function constructMetadata({
       images: [image],
       creator: "@steventey",
     },
-    icons: "/favicon.ico",
-    metadataBase: new URL("https://nyt-og.vercel.app/"),
+    icons,
+    metadataBase: new URL("https://og.cool/"),
     themeColor: "#FFF",
   };
+}
+
+export function getEndpointFromDomain(domain: string) {
+  let endpoint;
+
+  switch (domain) {
+    case "nytimes.com":
+      endpoint = "nyt";
+      break;
+    case "wired.com":
+      endpoint = "wired";
+      break;
+    case "techcrunch.com":
+      endpoint = "tc";
+      break;
+    default:
+      endpoint = "nyt";
+      break;
+  }
+
+  return endpoint;
 }
