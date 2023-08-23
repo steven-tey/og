@@ -24,7 +24,7 @@ export default async function middleware(req: NextRequest) {
   }
 
   const isBot = detectBot(req);
-  if (true) {
+  if (isBot) {
     return NextResponse.rewrite(new URL(req.nextUrl.pathname, req.url));
   }
   return NextResponse.redirect(`https://${path}`);
