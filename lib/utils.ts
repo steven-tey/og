@@ -69,3 +69,9 @@ export function getEndpointFromDomain(domain: string) {
     return "nyt";
   }
 }
+
+export const SUPPORTED_PUBLICATIONS = [
+  "nytimes.com",
+  "wired.com",
+  "techcrunch.com",
+];

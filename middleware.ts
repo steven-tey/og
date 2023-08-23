@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { detectBot } from "@/lib/utils";
+import { SUPPORTED_PUBLICATIONS, detectBot } from "@/lib/utils";
 
 export const config = {
   matcher: [
@@ -18,6 +18,14 @@ export default async function middleware(req: NextRequest) {
   const path = `${req.nextUrl.pathname}${
     searchParams.length > 0 ? `?${searchParams}` : ""
   }`;
+
+  if (
+    SUPPORTED_PUBLICATIONS.every(
+      (publication) => !path.startsWith(`/${publication}`)
+    )
+  ) {
+    return NextResponse.redirect("https://github.com/steven-tey/og");
+  }
 
   const isBot = detectBot(req);
   if (isBot) {
