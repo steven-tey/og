@@ -8,7 +8,8 @@ Read the guide:
 
 To use **OG.cool**, all you need to do is replace the `https://` (or `https://www.`) portion of the news article's URL with `https://og.cool/`.
 
-Example: 
+Example:
+
 - Original URL: https://www.nytimes.com/2023/08/23/climate/ocean-warming-fish.html
 - **OG.cool** URL: https://og.cool/nytimes.com/2023/08/23/climate/ocean-warming-fish.html
 
@@ -24,13 +25,17 @@ To add your publication, refer to the [Contributing](#contributing) section.
 
 ## Examples
 
-### New York Times (`og.cool/nytimes.com/...`)
+### New York Times
 
 ![image](https://github.com/steven-tey/og.cool/assets/28986134/e25c36b0-c4ca-4502-b5e5-5968bb860644)
 
-### Wired (`og.cool/wired.com/...`)
+Try it for yourself: https://og.cool/nytimes.com/2023/08/23/climate/ocean-warming-fish.html
+
+### Wired
 
 ![image](https://github.com/steven-tey/og.cool/assets/28986134/04cac805-0050-4b88-9e23-dcccfc0bf769)
+
+Try it for yourself: https://og.cool/wired.com/story/adhd-adderall-video-games-endeavorrx/
 
 ## Contributing
 
