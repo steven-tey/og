@@ -59,22 +59,13 @@ export function constructMetadata({
 }
 
 export function getEndpointFromDomain(domain: string) {
-  let endpoint;
-
-  switch (domain) {
-    case "nytimes.com":
-      endpoint = "nyt";
-      break;
-    case "wired.com":
-      endpoint = "wired";
-      break;
-    case "techcrunch.com":
-      endpoint = "tc";
-      break;
-    default:
-      endpoint = "nyt";
-      break;
+  if (domain.includes("nytimes.com")) {
+    return "nyt";
+  } else if (domain.includes("wired.com")) {
+    return "wired";
+  } else if (domain.includes("techcrunch.com")) {
+    return "tc";
+  } else {
+    return "nyt";
   }
-
-  return endpoint;
 }
