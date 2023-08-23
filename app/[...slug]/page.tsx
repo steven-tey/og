@@ -15,6 +15,7 @@ export async function generateMetadata({
   ).then((res) => res.json());
 
   const domain = params.slug[0];
+  console.log(domain, params.slug);
 
   return constructMetadata({
     title,
