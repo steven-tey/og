@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Introduction
 
-## Getting Started
+**OG.cool** is a simple service that allows you to display headlines directly inside your news article's OG image. Powered by [`@vercel/og`](https://vercel.com/docs/functions/edge-functions/og-image-generation).
 
-First, run the development server:
+Read the guide:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## How it works
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To use **OG.cool**, all you need to do is replace the `https://` (or `https://www.`) portion of the news article's URL with `https://og.cool/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Example: 
+- Original URL: https://www.nytimes.com/2023/08/23/climate/ocean-warming-fish.html
+- **OG.cool** URL: https://og.cool/nytimes.com/2023/08/23/climate/ocean-warming-fish.html
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The **OG.cool** URL will still redirect to the destination URL when a user clicks on it, but for bots like `TwitterBot` or `SlackBot`, they'll be shown an OG image with a nice headline in it (refer [Examples](#examples) section).
 
-## Learn More
+**OG.cool** currently supports the following publications:
 
-To learn more about Next.js, take a look at the following resources:
+- New York Times
+- Wired
+- Techcrunch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To add your publication, refer to the [Contributing](#contributing) section.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Examples
 
-## Deploy on Vercel
+### New York Times (`og.cool/nytimes.com/...`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![image](https://github.com/steven-tey/og.cool/assets/28986134/e25c36b0-c4ca-4502-b5e5-5968bb860644)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Wired (`og.cool/wired.com/...`)
+
+![image](https://github.com/steven-tey/og.cool/assets/28986134/04cac805-0050-4b88-9e23-dcccfc0bf769)
+
+## Contributing
+
+WIP
