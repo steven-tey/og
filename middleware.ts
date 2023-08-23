@@ -19,10 +19,6 @@ export default async function middleware(req: NextRequest) {
     searchParams.length > 0 ? `?${searchParams}` : ""
   }`;
 
-  if (path === "/") {
-    return NextResponse.redirect("https://github.com/steven-tey/og");
-  }
-
   const isBot = detectBot(req);
   if (isBot) {
     return NextResponse.rewrite(new URL(req.nextUrl.pathname, req.url));
