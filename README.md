@@ -2,7 +2,7 @@
 
 **OG.cool** is a simple service that allows you to display headlines directly inside your news article's OG image. Powered by [`@vercel/og`](https://vercel.com/docs/functions/edge-functions/og-image-generation).
 
-Read the guide:
+Read the guide: https://vercel.com/guides/displaying-article-headlines-in-social-previews
 
 ## How it works
 
