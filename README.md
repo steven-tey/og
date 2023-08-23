@@ -27,13 +27,13 @@ To add your publication, refer to the [Contributing](#contributing) section.
 
 ### New York Times
 
-![image](https://github.com/steven-tey/og.cool/assets/28986134/e25c36b0-c4ca-4502-b5e5-5968bb860644)
+![image](https://github.com/steven-tey/og/assets/28986134/fd79bf14-cab1-4989-a5bb-74146fa43485)
 
 Try it for yourself: https://og.cool/nytimes.com/2023/08/23/climate/ocean-warming-fish.html
 
 ### Wired
 
-![image](https://github.com/steven-tey/og.cool/assets/28986134/04cac805-0050-4b88-9e23-dcccfc0bf769)
+![image](https://github.com/steven-tey/og/assets/28986134/7de03193-05e0-4ee1-bb3a-45c12ed70cf7)
 
 Try it for yourself: https://og.cool/wired.com/story/adhd-adderall-video-games-endeavorrx/
 
