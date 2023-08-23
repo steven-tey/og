@@ -33,4 +33,4 @@ Try it for yourself: https://og.cool/nytimes.com/2023/08/23/climate/ocean-warmin
 
 ![image](https://github.com/steven-tey/og/assets/28986134/7de03193-05e0-4ee1-bb3a-45c12ed70cf7)
 
-Try it for yourself: https://og.cool/wired.com/story/adhd-adderall-video-games-endeavorrx/ ([OG image preview](https://dub.co/tools/metatags?url=https%3A%2F%2Fog.cool%2Fwired.com%2Fstory%2Fadhd-adderall-video-games-endeavorrx%2F)https://dub.co/tools/metatags?url=https%3A%2F%2Fog.cool%2Fwired.com%2Fstory%2Fadhd-adderall-video-games-endeavorrx%2F)
+Try it for yourself: https://og.cool/wired.com/story/adhd-adderall-video-games-endeavorrx/ ([OG image preview](https://dub.co/tools/metatags?url=https%3A%2F%2Fog.cool%2Fwired.com%2Fstory%2Fadhd-adderall-video-games-endeavorrx%2F)
