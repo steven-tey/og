@@ -69,3 +69,38 @@ export function getEndpointFromDomain(domain: string) {
     return "nyt";
   }
 }
+
+// Generating and appending HMAC
+export async function addHmacToURL(url: string) {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(process.env.OG_SECRET),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const message = encoder.encode(url);
+  const signature = await crypto.subtle.sign("HMAC", key, message);
+  const signatureHex = Array.from(new Uint8Array(signature))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  return `${url}&hmac=${signatureHex}`;
+}
+
+// Verifying HMAC
+export async function verifyHmac(url: string, hmac: string) {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(process.env.OG_SECRET),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["verify"]
+  );
+  const message = encoder.encode(url);
+  const signature = Uint8Array.from(
+    hmac.match(/.{1,2}/g)!.map((byte) => parseInt(byte, 16))
+  );
+  return await crypto.subtle.verify("HMAC", key, signature, message);
+}

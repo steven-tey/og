@@ -1,3 +1,4 @@
+import { verifyHmac } from "@/lib/utils";
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 
@@ -10,13 +11,27 @@ const apercu = fetch(
 ).then((res) => res.arrayBuffer());
 
 export default async function handler(req: NextRequest) {
-  const apercuData = await apercu;
-
   const { searchParams } = new URL(req.url);
 
   const url =
     searchParams.get("url") ||
     "https://www.wired.com/story/canada-wildfires-future/";
+
+  const hmac = searchParams.get("hmac");
+
+  if (!hmac) {
+    return new Response("Missing HMAC", { status: 403 });
+  }
+
+  const hmacVerified = await verifyHmac(url, hmac);
+
+  console.log({ hmacVerified });
+
+  if (!hmacVerified) {
+    return new Response("Invalid HMAC", { status: 403 });
+  }
+
+  const apercuData = await apercu;
 
   const { title, image } = await fetch(
     `https://api.dub.co/metatags?url=${url}`

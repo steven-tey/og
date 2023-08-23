@@ -1,4 +1,8 @@
-import { constructMetadata, getEndpointFromDomain } from "@/lib/utils";
+import {
+  addHmacToURL,
+  constructMetadata,
+  getEndpointFromDomain,
+} from "@/lib/utils";
 import Image from "next/image";
 
 export const runtime = "edge";
@@ -36,12 +40,14 @@ export default async function ProxyPage({
   ).then((res) => res.json());
 
   const domain = params.slug[0];
+  const finalUrl = await addHmacToURL(`https://${slug}`);
+  console.log(finalUrl);
 
   return (
     <main className="flex h-screen w-screen items-center justify-center">
       <div className="mx-5 w-full max-w-lg overflow-hidden rounded-lg border border-gray-200 sm:mx-0">
         <Image
-          src={`/api/og/${getEndpointFromDomain(domain)}?url=https://${slug}`}
+          src={`/api/og/${getEndpointFromDomain(domain)}?url=${finalUrl}`}
           alt={title}
           width={1050}
           height={549}
