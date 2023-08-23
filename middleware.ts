@@ -20,7 +20,7 @@ export default async function middleware(req: NextRequest) {
   }`;
 
   if (path === "/") {
-    return NextResponse.redirect("https://github.com/steven-tey/og.cool");
+    return NextResponse.redirect("https://github.com/steven-tey/og");
   }
 
   const isBot = detectBot(req);
