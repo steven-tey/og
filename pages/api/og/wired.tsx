@@ -32,13 +32,33 @@ export default async function handler(req: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundImage: `url(${image})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
           fontWeight: 600,
           color: "white",
         }}
       >
+        <img
+          src={image}
+          alt=""
+          width={1050}
+          height={549} 
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            height: "66%",
+            width: "100%",
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%)",
+          }}
+        ></div>
         <h1
           style={{
             position: "absolute",

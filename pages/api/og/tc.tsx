@@ -22,6 +22,9 @@ export default async function handler(req: NextRequest) {
     `https://api.dub.co/metatags?url=${url}`
   ).then((res) => res.json());
 
+  console.log(url, title, image
+    )
+
   return new ImageResponse(
     (
       <div
@@ -32,37 +35,49 @@ export default async function handler(req: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundImage: `url(${image})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
           fontWeight: 600,
           color: "white",
         }}
       >
+        <img
+          src={image}
+          alt=""
+          width={1050}
+          height={549} 
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
         <div
           style={{
-            display: "flex",
             position: "absolute",
             bottom: 0,
             left: 0,
+            height: "66%",
             width: "100%",
-            padding: "20px 80px",
-            backgroundColor: "white",
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%)",
+          }}
+        ></div>
+        <h1
+          style={{
+            position: "absolute",
+            bottom: 60,
+            left: 60,
+            right: 60,
+            fontSize: 50,
+            fontFamily: "Aktiv Grotesk",
+            color: "white",
+            maxWidth: 900,
+            whiteSpace: "pre-wrap",
+            lineHeight: 1.4,
           }}
         >
-          <h1
-            style={{
-              fontSize: 50,
-              fontFamily: "Aktiv Grotesk",
-              color: "black",
-              maxWidth: 900,
-              whiteSpace: "pre-wrap",
-              lineHeight: 1.4,
-            }}
-          >
-            {title.replace(" | TechCrunch", "")}
-          </h1>
-        </div>
+          {title.replace(" | TechCrunch", "")}
+        </h1>
       </div>
     ),
     {
