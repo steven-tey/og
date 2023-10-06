@@ -40,7 +40,7 @@ export default async function handler(req: NextRequest) {
           src={image}
           alt=""
           width={1050}
-          height={549} 
+          height={549}
           style={{
             width: "100%",
             height: "100%",
