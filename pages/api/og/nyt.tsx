@@ -18,6 +18,8 @@ export default async function handler(req: NextRequest) {
     searchParams.get("url") ||
     "https://www.nytimes.com/2023/08/22/climate/tropical-storm-california-maui-fire-extreme-august.html";
 
+  const withShadow = searchParams.get("shadow") !== "false";
+
   const { title, image } = await fetch(
     `https://api.dub.co/metatags?url=${url}`
   ).then((res) => res.json());
@@ -62,7 +64,6 @@ export default async function handler(req: NextRequest) {
         <h1
           style={{
             position: "absolute",
-            bottom: 60,
             left: 80,
             margin: 0,
             fontSize: 50,
@@ -70,6 +71,7 @@ export default async function handler(req: NextRequest) {
             maxWidth: 900,
             whiteSpace: "pre-wrap",
             letterSpacing: -1,
+            textShadow: withShadow ? "0 0 5px rgba(0,0,0,0.5)" : undefined,
           }}
         >
           {title}
